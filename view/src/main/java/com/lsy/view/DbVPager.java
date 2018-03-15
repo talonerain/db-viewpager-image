@@ -4,14 +4,17 @@ import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liusiyu.taloner on 2018/3/14.
  */
 
-public class DbVPager extends ViewGroup {
+public class DbVPager extends RelativeLayout {
     ViewPager viewPager;
     TextView tv_index;
     TabLayout tab1;
@@ -32,10 +35,6 @@ public class DbVPager extends ViewGroup {
         init();
     }
 
-    @Override
-    protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
-
-    }
 
     private void init() {
         inflate(getContext(), R.layout.view_db_vpager, this);
@@ -43,5 +42,13 @@ public class DbVPager extends ViewGroup {
         tv_index = (TextView) findViewById(R.id.tv_index);
         tab1 = (TabLayout) findViewById(R.id.tab1);
         tab2 = (TabLayout) findViewById(R.id.tab2);
+        ViewPagerAdapter adapter = new ViewPagerAdapter();
+
+        List<String> imgList = new ArrayList<>();
+        imgList.add("http://pic1.win4000.com/wallpaper/2017-10-14/59e1bb8433aa1.jpg");
+        imgList.add("http://pic1.win4000.com/wallpaper/2017-12-19/5a387cb8439ea.jpg");
+        imgList.add("http://pic1.win4000.com/wallpaper/2017-10-14/59e1bb8433aa1.jpg");
+        adapter.bind(getContext(), imgList);
+        viewPager.setAdapter(adapter);
     }
 }
