@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ImgGroups {
     public String groupName;    //要显示的图片分组名称
-    List<String> imgList;
+    public List<String> imgList;
 
     public ImgGroups() {
 

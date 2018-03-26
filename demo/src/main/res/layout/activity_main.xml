@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.lsy.doubleviewpager.MainActivity"
     android:orientation="vertical">
+
+    <com.lsy.view.DbVPager
+        android:id="@+id/db_vpager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
 
     <TextView
         android:id="@+id/tv_showText"
@@ -14,10 +19,4 @@
         android:layout_alignParentBottom="true"
         android:text="当前分类：美女"/>
 
-    <com.lsy.view.DbVPager
-        android:id="@+id/db_vpager"
-        android:layout_above="@+id/tv_showText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</RelativeLayout>
+</LinearLayout>

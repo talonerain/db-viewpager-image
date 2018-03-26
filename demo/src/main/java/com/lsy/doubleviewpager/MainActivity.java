@@ -17,9 +17,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initDataSource();
         mWidget = (DbVPager) findViewById(R.id.db_vpager);
-        mWidget.setPosition(DbVPager.BarPositon.BOTTOM);
+        mWidget.setBarPosition(DbVPager.BarPositon.TOP);
         mWidget.setSource(dataSource);
+        mWidget.show();
     }
 
     private void initDataSource() {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         imgList2.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521801084840&di=5746a7747383255c3b0c3c1201f93a59&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201311%2F28%2F102808lhjhh05b5tp8ph61.jpg");
         ImgGroups group2 = new ImgGroups("风景", imgList2);
 
+        dataSource = new ArrayList<>();
         dataSource.add(group1);
         dataSource.add(group2);
     }
