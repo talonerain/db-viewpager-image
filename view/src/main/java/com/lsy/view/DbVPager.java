@@ -33,6 +33,7 @@ public class DbVPager extends RelativeLayout {
     private boolean isToLeft;
     private boolean tabScrolling;   //防止设置viewpager和TabLayout位置时触发回调
     private boolean vpScrolling;
+    private DbCallbackListener mListener;
 
     public void setBarPosition(BarPositon position) {
         this.mPositon = position;
@@ -87,6 +88,9 @@ public class DbVPager extends RelativeLayout {
                         if (index >= 0) {
                             TabLayout.Tab tab = getTab().getTabAt(index);
                             if (tab != null) {
+                                if (mListener != null) {
+                                    mListener.callback(tab.getPosition(), tab.getText().toString());
+                                }
                                 vpScrolling = true;
                                 tab.select();
                                 vpScrolling = false;
@@ -97,6 +101,9 @@ public class DbVPager extends RelativeLayout {
                         if (index >= 0) {
                             TabLayout.Tab tab = getTab().getTabAt(index + 1);
                             if (tab != null) {
+                                if (mListener != null) {
+                                    mListener.callback(tab.getPosition(), tab.getText().toString());
+                                }
                                 vpScrolling = true;
                                 tab.select();
                                 vpScrolling = false;
@@ -114,6 +121,9 @@ public class DbVPager extends RelativeLayout {
         getTab().addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                if (mListener != null) {
+                    mListener.callback(tab.getPosition(), tab.getText().toString());
+                }
                 if (!vpScrolling) {
                     int index = tab.getPosition();
                     int pos;
@@ -162,12 +172,17 @@ public class DbVPager extends RelativeLayout {
         indexList = new int[mDataSource.size()];
         imgList = new ArrayList<>();
         Iterator<ImgGroups> iterator = mDataSource.iterator();
-        int index = 0, i = 0;
+        int i = 0;
         while (iterator.hasNext()) {
             ImgGroups item = iterator.next();
             TabLayout.Tab tab = getTab().newTab();
             if (null != item && null != item.imgList && item.imgList.size() > 0) {
-                indexList[i++] = index + item.imgList.size();
+                if (i > 0) {
+                    int temp = indexList[i - 1];
+                    indexList[i++] = temp + item.imgList.size();
+                } else {
+                    indexList[i++] = item.imgList.size();
+                }
                 String text = TextUtils.isEmpty(item.groupName) ? "null" : item.groupName;
 
                 tab.setText(text);
@@ -176,6 +191,14 @@ public class DbVPager extends RelativeLayout {
                 imgList.addAll(item.imgList);
             }
         }
+    }
+
+    public void addTabChangeListenr(DbCallbackListener listener) {
+        this.mListener = listener;
+    }
+
+    public interface DbCallbackListener{
+        void callback(int index, String text);
     }
 
     public enum BarPositon {

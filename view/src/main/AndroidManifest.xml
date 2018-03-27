@@ -2,7 +2,6 @@
     package="com.lsy.view">
 
     <application
-        android:name=".App.App"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">

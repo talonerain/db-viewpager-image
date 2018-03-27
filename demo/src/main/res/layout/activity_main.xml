@@ -10,13 +10,13 @@
     <com.lsy.view.DbVPager
         android:id="@+id/db_vpager"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="400dp" />
 
     <TextView
         android:id="@+id/tv_showText"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:text="当前分类：美女"/>
+        android:layout_height="wrap_content"
+        tools:text="当前分类：美女"/>
 
 </LinearLayout>

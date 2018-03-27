@@ -10,10 +10,6 @@ public class ImgGroups {
     public String groupName;    //要显示的图片分组名称
     public List<String> imgList;
 
-    public ImgGroups() {
-
-    }
-
     public ImgGroups(String name, List<String> imgList) {
         this.groupName = name;
         this.imgList = imgList;

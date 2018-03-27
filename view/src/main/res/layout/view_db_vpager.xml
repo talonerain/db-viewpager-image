@@ -19,11 +19,12 @@
         android:id="@+id/tab2"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        app:tabMode="scrollable"
+        app:tabMode="fixed"
         app:tabGravity="fill"
         android:layout_alignParentBottom="true"/>
 
     <RelativeLayout
+        android:id="@+id/layout_container"
         android:layout_above="@+id/tab2"
         android:layout_below="@+id/tab1"
         android:layout_width="match_parent"
