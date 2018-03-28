@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
@@ -42,7 +41,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         view.setLayoutParams(new ViewPager.LayoutParams());
         view.setScaleType(ImageView.ScaleType.CENTER_CROP);
         Glide.with(context).load(imgList.get(position))
-                .apply(new RequestOptions().placeholder(R.drawable.loading))
+                .apply(new RequestOptions().placeholder(R.drawable.loading3))
                 .into(view);
         container.addView(view);
         return view;
