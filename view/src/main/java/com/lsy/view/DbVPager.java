@@ -29,7 +29,7 @@ public class DbVPager extends RelativeLayout {
     private int[] indexList;
     List<String> imgList;
     private List<String> textList;
-    private float vpPosition = 0;
+    private int vpPosition = 0;
     private boolean isToLeft;
     private boolean tabScrolling;   //防止设置viewpager和TabLayout位置时触发回调
     private boolean vpScrolling;
@@ -72,16 +72,34 @@ public class DbVPager extends RelativeLayout {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (vpPosition > positionOffset) {
-                    isToLeft = true;
-                } else if (vpPosition < positionOffset) {
-                    isToLeft = false;
-                }
-                vpPosition = positionOffset;
+//                if (vpPosition > positionOffset) {
+//                    isToLeft = true;
+//                } else if (vpPosition < positionOffset) {
+//                    isToLeft = false;
+//                }
+                //vpPosition = positionOffset;
+
+//                if (positionOffset != 0) {
+//                    if (vpPosition >= positionOffsetPixels) {
+//                        //右滑
+//                        isToLeft = true;
+//                    } else if (vpPosition < positionOffsetPixels) {
+//                        //左滑
+//                        isToLeft = false;
+//                    }
+//                }
+//                vpPosition = positionOffsetPixels;
             }
 
             @Override
             public void onPageSelected(int position) {
+                if (vpPosition > position) {
+                    isToLeft = true;
+                } else if(vpPosition<position) {
+                    isToLeft = false;
+                }
+                vpPosition = position;
+
                 if (!tabScrolling) {
                     if (isToLeft) {
                         int index = Arrays.binarySearch(indexList, position + 1);
