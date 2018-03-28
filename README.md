@@ -1,2 +1,2 @@
-# DoubleViewPager
-使用单个viewpager实现类似viewpager嵌套样式
+# db-viewpager-image
+使用viewpager + TabLayout实现双层viewpager嵌套效果

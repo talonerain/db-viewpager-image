@@ -1,8 +1,14 @@
 package com.lsy.doubleviewpager;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lsy.view.DbVPager;
 import com.lsy.view.model.ImgGroups;
@@ -14,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private List<ImgGroups> dataSource;
     DbVPager mWidget;
     TextView tv_showText;
+    TextView btn_website;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,20 @@ public class MainActivity extends AppCompatActivity {
         initDataSource();
         mWidget = (DbVPager) findViewById(R.id.db_vpager);
         tv_showText = (TextView) findViewById(R.id.tv_showText);
+        btn_website = (TextView) findViewById(R.id.btn_website);
+        btn_website.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if (TextUtils.isEmpty(btn_website.getText())) {
+                    return false;
+                }
+                ClipboardManager manager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData data = ClipData.newPlainText("Lable", btn_website.getText());
+                manager.setPrimaryClip(data);
+                Toast.makeText(MainActivity.this, "复制成功", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
         mWidget.setBarPosition(DbVPager.BarPositon.BOTTOM);
         mWidget.setSource(dataSource);
         tv_showText.setText("当前分类：" + dataSource.get(0).groupName);

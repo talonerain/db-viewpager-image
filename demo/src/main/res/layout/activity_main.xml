@@ -19,4 +19,17 @@
         android:layout_height="wrap_content"
         tools:text="当前分类：美女"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="项目地址：(长按复制)"/>
+
+    <TextView
+        android:id="@+id/btn_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="https://github.com/talonerain/db-viewpager-image"/>
+
 </LinearLayout>
