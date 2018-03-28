@@ -42,7 +42,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'db-viewpager-image'
 
-    publishedGroupId = 'com.bintray.db-viewpager-image'
+    publishedGroupId = 'com.github.taloner'
     libraryName = 'db-viewpager-image'
     artifact = 'db-viewpager-image'
 
@@ -62,7 +62,8 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-group = publishedGroupId
+group = publishedGroupId    //标识项目地址
+version = libraryVersion    //标识项目版本
 
 install {
     repositories.mavenInstaller {
