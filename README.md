@@ -8,7 +8,10 @@
 
 ## 效果展示
 
-apk下载地址：[https://github.com/talonerain/db-viewpager-image/blob/master/demo/demo-release.apk](https://github.com/talonerain/db-viewpager-image/blob/master/demo/demo-release.apk)
+apk下载地址：[https://github.com/talonerain/db-viewpager-image/blob/master/demo/demo-release.apk](https://github.com/talonerain/db-viewpager-image/blob/master/demo/demo-release.apk)  
+
+<img width="300" height="450" src="https://raw.githubusercontent.com/talonerain/db-viewpager-image/master/screenshots/demo.gif"/>  
+
 
 ## 如何添加
 
