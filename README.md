@@ -4,7 +4,9 @@
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-21%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=21)  
 
-很多时候项目中需要实现双层Viewpager嵌套效果，但是我做过几次都是遇到各种各样的问题，这个项目使用一个Viewpager，加上计算控制显示来实现双层嵌套效果，供有需要的同学使用。
+很多时候项目中需要实现双层Viewpager嵌套效果，但是我做过几次都是遇到各种各样的问题，这个项目使用一个Viewpager，加上计算控制显示来实现双层嵌套效果，供有需要的同学使用。  
+
+文章地址：[https://www.jianshu.com/p/92e0eb8b3081](https://www.jianshu.com/p/92e0eb8b3081)
 
 ## 效果展示
 

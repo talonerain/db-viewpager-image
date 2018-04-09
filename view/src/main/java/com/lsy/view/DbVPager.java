@@ -66,29 +66,12 @@ public class DbVPager extends RelativeLayout {
         tab1 = (TabLayout) findViewById(R.id.tab1);
         tab2 = (TabLayout) findViewById(R.id.tab2);
         ViewPagerAdapter adapter = new ViewPagerAdapter();
-        intIndex();
+        initData();
         adapter.bind(getContext(), imgList);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                if (vpPosition > positionOffset) {
-//                    isToLeft = true;
-//                } else if (vpPosition < positionOffset) {
-//                    isToLeft = false;
-//                }
-                //vpPosition = positionOffset;
-
-//                if (positionOffset != 0) {
-//                    if (vpPosition >= positionOffsetPixels) {
-//                        //右滑
-//                        isToLeft = true;
-//                    } else if (vpPosition < positionOffsetPixels) {
-//                        //左滑
-//                        isToLeft = false;
-//                    }
-//                }
-//                vpPosition = positionOffsetPixels;
             }
 
             @Override
@@ -186,7 +169,7 @@ public class DbVPager extends RelativeLayout {
         return tab1.getVisibility() == VISIBLE ? tab1 : tab2;
     }
 
-    private void intIndex() {
+    private void initData() {
         indexList = new int[mDataSource.size()];
         imgList = new ArrayList<>();
         Iterator<ImgGroups> iterator = mDataSource.iterator();
