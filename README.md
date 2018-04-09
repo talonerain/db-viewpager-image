@@ -30,7 +30,7 @@ apk下载地址：[https://github.com/talonerain/db-viewpager-image/blob/master/
 ### 2. 在moudle的gradle中添加：
 
 ```
-compile 'com.github.talonerain:db-viewpager-image:v1.0.1'
+compile 'com.github.talonerain:db-viewpager-image:1.0.3'
 ```
 ### 3. 在xml布局文件中引入：
 
